@@ -19,7 +19,7 @@
   <body>
     <div class="container d-flex flex-column align-items-center" id="search-section">
       <h1 class="mt-5 bg-white rounded p-3 border shadow-sm">Recipes App</h1>
-      <form class="d-flex py-5 px-1 px-md-0" action="/" method="get">
+      <form class="d-flex py-5 px-1 px-md-0 w-25" action="/" method="get">
         <input
           id="search-input"
           class="form-control shadow-sm"
@@ -35,14 +35,25 @@
         <a class="btn btn-outline-success ms-3 shadow-sm" role="button" href="/my-recipes">View My Recipes</a>
       </form>
 
-      <% meals.forEach(meal=>{ %>
-      <div class="card" style="width: 18rem" id="<%=meal.idMeal %>">
-        <div class="card-body">
-          <h5 class="card-title"><%= meal.strMeal %></h5>
-          <p class="card-text"><%= meal.strInstructions %></p>
+      <div class="d-flex">
+        <% meals !== null && meals.forEach(meal=>{ %>
+
+        <div class="card m-5" style="width: 18rem" id="<%=meal.idMeal %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= meal.strMeal %></h5>
+            <hr />
+            <h6>Recipe</h6>
+            <p class="card-text"><%= meal.strInstructions %></p>
+            <hr />
+          </div>
+          <div class="card-body">
+            <h6>Ingredients</h6>
+            <p class="card-text">To Be Done</p>
+          </div>
         </div>
+
+        <% })%>
       </div>
-      <% }) %>
     </div>
 
     <script

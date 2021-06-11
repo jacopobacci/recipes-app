@@ -15,11 +15,16 @@ app.set('view engine', 'ejs');
 // GET
 
 app.get('/', async (req, res) => {
-  const apiUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${req.query.search}`;
-  const response = await fetch(apiUrl);
-  const json = await response.json();
-  const { meals } = json;
-  res.render('recipes.ejs', { meals });
+  try {
+    const apiUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${req.query.search}`;
+    const response = await fetch(apiUrl);
+    const json = await response.json();
+    const { meals } = json;
+    res.render('recipes.ejs', { meals });
+  } catch (err) {
+    res.render('recipes.ejs');
+    console.log(err);
+  }
 });
 
 app.get('/add-recipe', (req, res) => {
@@ -36,12 +41,6 @@ app.get('/my-recipes/:id/update', async (req, res) => {
   const singleRecipe = recipeFromDb[0];
   res.render('updateRecipe.ejs', { singleRecipe });
 });
-
-// app.get('/search', async (req, res) => {
-//   // const search = req.params.search;
-
-//   // res.json(json);
-// });
 
 // POST
 
