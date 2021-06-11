@@ -19,7 +19,7 @@
   <body>
     <div class="container d-flex flex-column align-items-center" id="search-section">
       <h1 class="mt-5 bg-white rounded p-3 border shadow-sm">Recipes App</h1>
-      <div class="d-flex py-5 px-1 px-md-0">
+      <form class="d-flex py-5 px-1 px-md-0" action="/" method="get">
         <input
           id="search-input"
           class="form-control shadow-sm"
@@ -29,11 +29,20 @@
           aria-label="Search"
         />
         <button class="btn btn-outline-success ms-3 shadow-sm" id="search-btn" type="submit">Search</button>
-      </div>
+      </form>
       <form class="d-flex px-1 px-md-0">
         <a class="btn btn-outline-primary shadow-sm" role="button" href="/add-recipe">Add New Recipe</a>
         <a class="btn btn-outline-success ms-3 shadow-sm" role="button" href="/my-recipes">View My Recipes</a>
       </form>
+
+      <% meals.forEach(meal=>{ %>
+      <div class="card" style="width: 18rem" id="<%=meal.idMeal %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= meal.strMeal %></h5>
+          <p class="card-text"><%= meal.strInstructions %></p>
+        </div>
+      </div>
+      <% }) %>
     </div>
 
     <script
