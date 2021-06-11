@@ -39,8 +39,6 @@ app.get('/themealdb/:search', async (req, res) => {
   const response = await fetch(apiUrl);
   const json = await response.json();
   const { meals } = json;
-  res.render('recipes.ejs', { meals });
-
   res.json(json);
 });
 
@@ -54,7 +52,7 @@ app.post('/my-recipes', async (req, res) => {
 // UPDATE
 
 app.patch('/my-recipes/:id', async (req, res) => {
-  const id = await recipe.updateRecipe(req.params.id, req.body);
+  await recipe.updateRecipe(req.params.id, req.body);
   console.log(req.params.id, req.body);
   res.redirect('/my-recipes');
 });

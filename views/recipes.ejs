@@ -13,16 +13,23 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="static/stylesheets/style.css" />
+    <link rel="stylesheet" href="/static/stylesheets/style.css" />
     <title>Document</title>
   </head>
   <body>
-    <div class="container d-flex flex-column align-items-center">
+    <div class="container d-flex flex-column align-items-center" id="search-section">
       <h1 class="mt-5 bg-white rounded p-3 border shadow-sm">Recipes App</h1>
-      <form class="d-flex py-5 px-1 px-md-0">
-        <input class="form-control shadow-sm" type="search" placeholder="Search Recipes Online" aria-label="Search" />
-        <button class="btn btn-outline-success ms-3 shadow-sm" type="submit">Search</button>
-      </form>
+      <div class="d-flex py-5 px-1 px-md-0">
+        <input
+          id="search-input"
+          class="form-control shadow-sm"
+          type="search"
+          placeholder="Search Recipes Online"
+          name="search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success ms-3 shadow-sm" id="search-btn" type="submit">Search</button>
+      </div>
       <form class="d-flex px-1 px-md-0">
         <a class="btn btn-outline-primary shadow-sm" role="button" href="/add-recipe">Add New Recipe</a>
         <a class="btn btn-outline-success ms-3 shadow-sm" role="button" href="/my-recipes">View My Recipes</a>
@@ -36,6 +43,6 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script src="static/scripts/clientRecipe.js"></script>
+    <script src="/static/scripts/clientRecipe.js"></script>
   </body>
 </html>

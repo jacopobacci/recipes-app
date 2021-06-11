@@ -15,12 +15,13 @@
 </head>
 <body>
   
-  <div class="container w-50">
-    <h1 class="py-4">Edit A Recipe</h1>
+  <!-- <div class="container w-50"> -->
+    <div class="container d-flex flex-column w-50">
+      <h1 class="mt-5 bg-white rounded p-3 border shadow-sm">Edit A Recipe</h1>
   <form method="POST" action="/my-recipes/<%=singleRecipe.id%>?_method=PATCH">
     <div class="">
       <label for="title" class="form-label">Title</label>
-      <input type="text" class="form-control" id="title"  name="title"placeholder="" value=<%= singleRecipe.title %>/>
+      <input type="text" class="form-control" id="title"  name="title" placeholder="" value=<%= singleRecipe.title %> />
     </div>
     <div class="mb-3">
       <label for="content" class="form-label">Content</label>
@@ -35,7 +36,7 @@
       <input type="range" class="form-range" min="0" max="5" id="rating" name="rating" value=<%= singleRecipe.rating %> />
     </div>
     <button id="add-recipe" class="btn btn-primary">Submit</button>
-    <a id="add-recipe" class="btn btn-primary" role="button" href="/">Go Back</a>
+    <a class="btn btn-outline-dark ms-4" role="button" href="/my-recipes">Go Back</a>
   </div>
   </form>
   </div>
@@ -47,7 +48,6 @@
 ></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-<script src="/static/scripts/clientRecipe.js"></script>
 
 </body>
 </html>
