@@ -34,21 +34,20 @@
         <a class="btn btn-outline-primary shadow-sm" role="button" href="/add-recipe">Add New Recipe</a>
         <a class="btn btn-outline-success ms-3 shadow-sm" role="button" href="/my-recipes">View My Recipes</a>
       </form>
-
       <div class="d-flex">
         <% meals !== null && meals.forEach(meal=>{ %>
-
         <div class="card m-5" style="width: 18rem" id="<%=meal.idMeal %>">
-          <div class="card-body">
+          <div class="card-body pb-0">
             <h5 class="card-title"><%= meal.strMeal %></h5>
             <hr />
+            <img class="card-img-top" src="<%= meal.strMealThumb %>" alt="">
+            <hr>
             <h6>Recipe</h6>
             <p class="card-text"><%= meal.strInstructions %></p>
             <hr />
           </div>
-          <div class="card-body">
+          <div class="card-body pt-0">
             <h6>Ingredients</h6>
-            <!-- <p class="card-text">To Be Done</p> -->
             <ul>
               <% for(let i = 1; i < 21; i++){ %>
                 <% if(meal[`strIngredient${i}`] !== null && meal[`strIngredient${i}`] !== ''){ %> 
@@ -56,9 +55,11 @@
                <% } %>
                <% } %>  
             </ul>
+            <% if(meal.strYoutube !== '' && meal.strYoutube !== null){ %> 
+            <a class="text-decoration-none" target="_blank" href="<%= meal.strYoutube %>">YouTube Recipe</a>
+            <% } %> 
           </div>
         </div>
-
         <% })%>
       </div>
     </div>
