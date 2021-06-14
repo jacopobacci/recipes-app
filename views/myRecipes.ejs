@@ -19,9 +19,8 @@
   <body>
     <div class="container d-flex flex-column align-items-center">
       <h1 class="mt-5 bg-white rounded p-3 border shadow-sm">My Recipes</h1>
-      <div class="d-flex">
+      <div class="d-flex flex-wrap justify-content-center">
         <% recipes.forEach(recipe=>{ %>
-
         <div class="card m-5" style="width: 18rem" id="recipe-<%= recipe.id %>">
           <div class="card-body">
             <h5 class="card-title"><%= recipe.title %></h5>
@@ -55,7 +54,6 @@
             </form>
           </div>
         </div>
-
         <% })%>
       </div>
       <div class="d-flex">

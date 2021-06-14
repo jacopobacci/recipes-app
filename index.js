@@ -53,7 +53,6 @@ app.post('/my-recipes', async (req, res) => {
 
 app.patch('/my-recipes/:id', async (req, res) => {
   await recipe.updateRecipe(req.params.id, req.body);
-  console.log(req.params.id, req.body);
   res.redirect('/my-recipes');
 });
 

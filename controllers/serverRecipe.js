@@ -4,8 +4,6 @@ const knex = require('./knex');
 
 const createRecipe = (recipe) => knex('recipes').insert(recipe);
 
-const addRecipeToDb = (recipe) => knex('recipes').insert(recipe);
-
 const getAllRecipes = () => knex('recipes').select('*');
 
 const deleteAllRecipes = () => knex('recipes').del('*');
@@ -18,7 +16,6 @@ const getSingleRecipe = (id) => knex('recipes').select('*').where('id', id);
 
 module.exports = {
   createRecipe,
-  addRecipeToDb,
   getAllRecipes,
   deleteAllRecipes,
   deleteRecipe,
